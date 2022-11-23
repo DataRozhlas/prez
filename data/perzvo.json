@@ -1,0 +1,88 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw",{"@language": "cs"}],
+  "url": "perzvo.csv",
+  "dc:description": "Registr zvláštních volebních okrskù", 
+  "tableSchema": { 
+    "columns": [{
+      "name": "OBEC",
+      "titles": "OBEC",
+      "dc:description": "Fiktivní kód obce 999997",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "OKRSEK",
+      "titles": "OKRSEK",
+      "dc:description": "Èíslo zahranièního okrsku",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "KC1",
+      "titles": "KC1",
+      "dc:description": "Kontrolní èíslice (MODULO7)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "NAZEVOKRSK",
+      "titles": "NAZEVOKRSK",
+      "dc:description": "Název okrsku (sídelní mìsto) - èesky",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "TYPURADU",
+      "titles": "TYPURADU",
+      "dc:description": "Typ zastupitelského úøadu (ZÚ) (vv=velvyslanectví, gk=generální konzulát, kj=konzulární jednatelství)",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "KODZEME",
+      "titles": "KODZEME",
+      "dc:description": "Numerický kód zemì sídla ZÚ dle CZEM",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "ZKRZEME",
+      "titles": "ZKRZEME",
+      "dc:description": "Alfabetický kód zemì na 2 znaky dle CZEM",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "NAZEVZEME",
+      "titles": "NAZEVZEME",
+      "dc:description": "Název zemì sídla ZÚ dle CZEM - èesky",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "SVETADIL",
+      "titles": "SVETADIL",
+      "dc:description": "Zkratka svìtadílu (EV=Evropa, AS=Asie, AF=Afrika, AM=Amerika, AO=Austrálie a Oceánie)",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "ADRESA",
+      "titles": "ADRESA",
+      "dc:description": "Adresa sídla ZÚ, kde se volební okrsek nachází",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "CASPOSUN",
+      "titles": "CASPOSUN",
+      "dc:description": "èasový posun v hodinách proti SELÈ (+/-)",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "NAZEVOKRSA",
+      "titles": "NAZEVOKRSA",
+      "dc:description": "Název okrsku (sídelní mìsto) - anglicky",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "NAZEVZEMEA",
+      "titles": "NAZEVZEMEA",
+      "dc:description": "Název zemì sídla ZÚ dle CZEM - anglicky",
+      "required": true,
+      "datatype": "string"
+    }
+    ],
+    "primaryKey": ["OBEC","OKRSEK"]
+  }
+}

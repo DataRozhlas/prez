@@ -1,0 +1,64 @@
+{
+  "@context": ["http://www.w3.org/ns/csvw",{"@language": "cs"}],
+  "url": "pecoco.csv",
+  "dc:description": "Èíselník obcí, mìstských èástí, mìstských obvodù a volebních okrskù", 
+  "tableSchema": { 
+    "columns": [{
+      "name": "KRAJ",
+      "titles": "KRAJ",
+      "dc:description": "Kód kraje dle CNUMNUTS, kam OBEC patøí",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OKRES",
+      "titles": "OKRES",
+      "dc:description": "Kód okresu dle CNUMNUTS, kam OBEC patøí",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "CPOU",
+      "titles": "CPOU",
+      "dc:description": "Kód pøebíracího místa dle CISPM, kam OBEC patøí",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "ORP",
+      "titles": "ORP",
+      "dc:description": "Kód obce s rozšíøenou pùsobností, kam OBEC patøí",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OBEC",
+      "titles": "OBEC",
+      "dc:description": "Kód obce, MÈ, MO, kde se volí - dle identifikace okrsku v RUIAN",
+      "required": false,
+      "datatype": "number"
+    },{
+      "name": "NAZEVOBCE",
+      "titles": "NAZEVOBCE",
+      "dc:description": "Název obce, MÈ, MO",
+      "required": true,
+      "datatype": "string"
+    },{
+      "name": "MINOKRSEK1",
+      "titles": "MINOKRSEK1",
+      "dc:description": "Nejnižší èíslo okrsku v rámci OBEC dle RUIAN",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "MAXOKRSEK1",
+      "titles": "MAXOKRSEK1",
+      "dc:description": "Nejvyšší èíslo okrsku v rámci OBEC dle RUIAN",
+      "required": true,
+      "datatype": "number"
+    },{
+      "name": "OBEC_PREZ",
+      "titles": "OBEC_PREZ",
+      "dc:description": "Kód obce pro prezentaci (odkaz na èíselník obcí)",
+      "required": true,
+      "datatype": "number"
+    }
+    ],
+    "primaryKey": "OBEC"
+  }
+}
