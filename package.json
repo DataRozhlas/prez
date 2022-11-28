@@ -4,22 +4,31 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
+    "production": "aws s3 sync out s3://datarozhlas/prez --acl public-read && aws cloudfront create-invalidation --distribution-id E3ABKG4QXPTL3P --paths '/prez/*'",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.4",
+    "@heroicons/react": "^2.0.13",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tanstack/react-query": "^4.17.1",
+    "@tanstack/react-query-devtools": "^4.17.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "d3-dsv": "^3.0.1",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.4",
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "solid": "link:@heroicons/react/solid",
     "typescript": "4.9.3"
   },
   "devDependencies": {
+    "@types/d3-dsv": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4",

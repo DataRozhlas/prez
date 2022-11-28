@@ -56,7 +56,9 @@ if (Deno.args[0] === "obce") {
     .flat();
 
   await Deno.writeTextFile(
-    `./data/${rok}/obce-${kolo}.tsv`,
+    `./public/${rok}/obce-${kolo}.tsv`,
     tsvFormat(cleanData)
   );
 }
+
+export {};

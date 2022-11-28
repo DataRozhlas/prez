@@ -93,13 +93,23 @@ const findSimilar = (obce, sample) => {
   });
 };
 
-const computeDifference = (kandidati, hlasy, sample) => {
+type Kandidati = { $: { PORADOVE_CISLO: string; HLASY: string } }[];
+
+type Hlasy = string;
+
+type Sample = { CKAND: number; name: string; prvni: number }[];
+
+const computeDifference = (
+  kandidati: Kandidati,
+  hlasy: Hlasy,
+  sample: Sample
+) => {
   const result = sample.reduce((acc, curr) => {
     const zkoumanyKandidat = kandidati.find(
       kandidat => Number(kandidat.$.PORADOVE_CISLO) === curr.CKAND
     );
     const procentoHlasu = zkoumanyKandidat
-      ? (Number(zkoumanyKandidat["$"].HLASY) / hlasy) * 100
+      ? (Number(zkoumanyKandidat["$"].HLASY) / Number(hlasy)) * 100
       : 0;
     const rozdil = Math.abs(procentoHlasu - curr.prvni);
 
@@ -113,3 +123,5 @@ const similar = findSimilar(cleanData, celostatni2018).sort(
 );
 
 console.log(similar.slice(0, 3));
+
+export {};
