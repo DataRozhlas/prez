@@ -7,8 +7,10 @@ const rok = Deno.args[2];
 const decoder = new TextDecoder("utf-8");
 
 const nutsRaw = await Deno.readFile(`./data/${rok}/cnumnuts.csv`);
-const nuts = dsvFormat(";").parse(decoder.decode(nutsRaw));
+const nuts = dsvFormat(",").parse(decoder.decode(nutsRaw));
 const krajeNuts = nuts.filter(item => item.NUTS?.length === 5);
+
+console.log(nuts);
 
 if (Deno.args[0] === "obce") {
   const urlBase = `http://www.volby.cz/pls/prez${rok}/vysledky_kraj?kolo=${kolo}&nuts=`;
@@ -27,10 +29,10 @@ if (Deno.args[0] === "obce") {
       console.log(kraj.NAZEVNUTS);
     });
   }
-  //   await Deno.writeTextFile(
-  //     `./data/${rok}/okresy-${kolo}.json`,
-  //     JSON.stringify(result)
-  //   );
+  await Deno.writeTextFile(
+    `./data/${rok}/okresy-${kolo}.json`,
+    JSON.stringify(result)
+  );
 
   const cleanData = result
     .map((okres: any) => {

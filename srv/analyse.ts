@@ -26,7 +26,7 @@ const cleanData = data
 
 const result = cleanData
   // .filter((obec: any) => +obec.UCAST.ZAPSANI_VOLICI > 10000)
-  .sort((a: any, b: any) => +b.UCAST.UCAST_PROC - +a.UCAST.UCAST_PROC);
+  .sort((a: any, b: any) => +a.UCAST.UCAST_PROC - +b.UCAST.UCAST_PROC);
 
 // console.log(result.slice(0, 3));
 
@@ -118,9 +118,9 @@ const computeDifference = (
   return result;
 };
 
-const similar = findSimilar(cleanData, celostatni2018).sort(
-  (a: any, b: any) => a.difference - b.difference
-);
+const similar = findSimilar(cleanData, celostatni2018)
+  .filter(obec => Number(obec.UCAST.ZAPSANI_VOLICI) < 1000)
+  .sort((a: any, b: any) => a.difference - b.difference);
 
 console.log(similar.slice(0, 3));
 
